@@ -10,11 +10,19 @@ Run the belowe commands in the terminal
 5.npm run test(Run all the tests)
 
 To run an individual Test by
+
 npm run test-userStory1
+
 npm run test-userStory2
+
 npm run test-userStory3
+
 npm run test-userStory4
+
 npm run test-userStory5
+
 npm run test-userStory6
+
 npm run test-userStory7
+
 npm run test-userStory8
