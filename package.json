@@ -1,0 +1,24 @@
+{
+  "name": "willys-kom-igang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/updated-selenium-cucumber-js/index",
+    "test-userStory1": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory1.feature",
+    "test-userStory2": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory2.feature",
+    "test-userStory3": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory3.feature",
+    "test-userStory4": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory4.feature",
+    "test-userStory5": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory5.feature",
+    "test-userStory6": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory6.feature",
+    "test-userStory7": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory7.feature",
+    "test-userStory8": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/userStory8.feature",
+    "test-negativeText": "node ./node_modules/updated-selenium-cucumber-js/index.js -f features/xnegative-test-search.feature"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "updated-selenium-cucumber-js": "^1.8.3-rc4"
+  }
+}

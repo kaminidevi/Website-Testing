@@ -1,0 +1,170 @@
+
+Willys varor och varukorg
+
+1.   Som användare vill jag kunna gå till olika kategorier av varor så att
+      jag kan se vilka varor som ingår i en kategori (t.ex. Fågel, Tofu etc).
+
+2.  Som användare vill jag kunna klicka på en vara för att få mer information om
+    den så att jag kan avgöra om den är intressant för mig.
+
+3.  Som användare vilja kunna lägga till 1 till flera exemplar av en vara
+     i varukorg så att jag kan köpa den.
+
+4.  Som användare vill jag kunna se min varukorg och de varor jag har
+     lagt i den ska då finnas där så att jag kan köpa dem. 
+     
+5.  Som användare vill jag att varukorgen räknar rätt så att jag kan se
+     totalpriset innan jag väljer att handla.
+
+6.  Som användare vill jag kunna ändra antalet av en vara i    
+     varukorgen så att jag kan köpa mer eller mindre av den än vad jag   
+     tänkte från början.
+
+7.  Som användare vill jag kunna ta bort en vara från varukorgen så 
+     att jag kan ångra att jag har lagt den där.
+     
+8.  Som användare vill jag kunna tömma hela min varukorg så att jag                               
+    kan börja om jag ångrar vad jag lagt i den helt.
+
+-------------------------------------Features and Scenarios--------------------------------------------------------------
+#1.Feature: Store categories
+  As as user I want to be able to visit different
+  product categories in order to see the products they contain.
+
+ Background:
+   Given that we are on Willy's website
+   And that we accepted the standard cookie policy
+   And that we have have been through the initial where to deliver popup
+
+ Scenario: Choose the "Frozen" category and check that it contains products.
+   Given that I am on the Frozen category page
+   Then I should get the related products
+
+#2.Feature: Get more information on product
+  As a user I want to click on a product to get more information
+  so that I can check if I want to buy the product or not
+
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+
+  Scenario: Information about product
+    When I click on the product picture
+    Then I should get the product information
+
+#3.Feature: Adding product quantities to shopping cart
+  As a willys user
+  I want to able to add a no of product quantities in Input field
+  So that I can see it in shopping cart
+
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+
+  Scenario Outline: Searching products and add to shopping cart
+    When I search for a <products>
+    And press Enter
+    Then I should see the result page
+    When Adding the quantities of product into Input field and shopping cart
+    Then The shopping cart should show the quantity of products added
+
+    Examples:
+      | products |
+      | "ost"    |
+      | "glass"  |
+
+#4.Feature: See added products in the shopping cart
+  As a Willys user
+  I want to be able to see added products in the shopping cart
+  on Willys so that I know what products I can select to buy
+
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+    And I add a product to the shopping cart
+
+  Scenario: Select the shopping cart
+    When I click the shopping cart button
+    Then I should get the products added in the shopping cart
+
+#5.Feature: To view total price
+  As a willys user
+  I want the shopping cart to count correctly
+  So that I can see the total price before I choose to buy the products
+  
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+
+  Scenario:
+    When I add some products to the shopping cart
+    And I click shopping cart button
+    Then I should see the total price of the products
+
+#6.Feature: Change number of a product quantity in shopping cart
+  As a user, I want to be able to change the number of an item in
+  shopping cart so I can buy more or less of it
+
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+    And I add a product to the shopping cart
+    And I click the shopping cart button
+
+  Scenario: Change product quantity
+    Then I can increase the number of items
+     
+#7.Feature: Removing items from shopping cart
+  As a user I want to be able to remove an item from the basket,
+  if I then regret putting it in the shopping cart.
+
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+
+  Scenario: Removing items from shopping cart
+    When I added the items to the cart
+    Then I check the shopping cart icon
+    Then click minus button to remove a particular product
+
+#8.Feature: Removing all items from the shopping cart
+  As a user I want to be able to remove all items from the shopping cart.
+  If I change my mind about shopping so that I want to empty the shopping cart
+
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+    And I add a product to the shopping cart
+    And I click the shopping cart button
+
+  Scenario: Empty shopping cart
+    Then empty the shopping cart by clicking on the icon
+
+#Negative-test 
+Feature: Non exiting product in Search Bar
+  As a willys user
+  I want to able to search a product by non existing product
+  So that I can see the error resultt
+
+  Background:
+    Given that we are on Willy's website
+    And that we accepted the standard cookie policy
+    And that we have have been through the initial where to deliver popup
+
+  Scenario Outline: Non exiting product in search bar
+    When I search for <items>
+    And press an Enter
+    Then I should see the error result
+
+    Examples:
+      | items        |
+      | "photoframe" |
+      | "123345"     |
+      | "@£$%"       |
