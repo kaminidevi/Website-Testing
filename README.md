@@ -3,9 +3,13 @@ System testing for website using Test Driven Development(TDD), Behavior Driven D
 Run the below commands in the terminal
 
 1.npm init
+
 2.npm init -y
+
 3.npm install
+
 4.npm i updated-selenium-cucumber-js
+
 5.npm run test(Run all the tests)
 
 Run an individual test by follow
